@@ -11,6 +11,16 @@ export function AddDynamicInput() {
     inputData[i]=onChangeValue.target.value
     setVal(inputData)
   }
+
+  const handleDelete  = (i) => {
+    const delVal = [...val]
+    delVal.splice(i,1)
+    setVal(delVal)
+  }
+
+  const handleClick = () => {
+    
+  }
   console.log(val, "-data")
   return (
     <>
@@ -18,11 +28,12 @@ export function AddDynamicInput() {
       {val.map((data,i) => {
         return (
           <div>
-            <input onChange = {e => handleChange(e, i)}/>
-            <button>x</button>
+            <input value= {data} onChange = {e => handleChange(e, i)}/>
+            <button onClick={() => handleDelete(i)}>x</button>
           </div>
         )
       })}
+      <button onClick={handleClick}>LI or LD</button>
     </>
   )
 }
