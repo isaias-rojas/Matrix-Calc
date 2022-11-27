@@ -1,7 +1,13 @@
-import 'katex/dist/katex.min.css';
+import { all, create } from 'mathjs';
 import React, { useState } from 'react';
 
+
 export default function Determinants() {
+  const config = {
+    matrix: 'Matrix',
+  }
+  const math = create(all, config)
+
   const [matrix, setMatrix] = useState('')
   const [updated, setUpdated] = useState(matrix)
 
@@ -17,14 +23,16 @@ export default function Determinants() {
     })
     setUpdated(newMatrix)
   }
+
   return (
     <div>
       <h1>Determinants</h1>
         <input type="text" onChange={handleChange} value= {matrix} placeholder=''/>
         <h2>Matrix: {matrix}</h2>
-        <h2>Updated: {updated}</h2>
+        <h2>Determinant: {math.det(updated)}</h2>
         <button onClick={handleClick}>Determinant</button>
         {console.log(updated)}
+        {console.log(math.det(updated))}
     </div>
   )
 }

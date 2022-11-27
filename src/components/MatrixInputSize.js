@@ -1,7 +1,15 @@
-import { useState } from 'react'
+import { all, create } from 'mathjs'
+import React, { useState } from 'react'
 
 export function AddDynamicInput() {
+  const config = {
+    matrix: 'Matrix',
+  }
+  
+  const math = create(all, config)
   const [val, setVal] = useState([])
+  const [result, setResult] = useState('')
+
   const handleAdd = () => {
     const abc = [...val,[]]
     setVal(abc)
@@ -19,9 +27,16 @@ export function AddDynamicInput() {
   }
 
   const handleClick = () => {
-    
+    const newMatrix = val.map(row => {
+      row = row.replace('[', '').replace(']', '')
+      const numbers = row.split(',')
+      return numbers.map(number => Number(number))
+    })
+    setVal(newMatrix)
+    setResult(math.det(newMatrix) === 0 ? 'LD':'LI')
   }
-  console.log(val, "-data")
+
+
   return (
     <>
     <button onClick={() => handleAdd()}>Add</button>
@@ -34,6 +49,10 @@ export function AddDynamicInput() {
         )
       })}
       <button onClick={handleClick}>LI or LD</button>
+      {
+      console.log(val)
+      }
+      <h2>Result : {result}</h2>
     </>
   )
 }
