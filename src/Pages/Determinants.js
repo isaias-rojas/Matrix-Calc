@@ -26,11 +26,11 @@ export default function Determinants() {
 
   return (
     <div>
-      <h1>Determinants</h1>
+      <h1>Determinantes</h1>
         <input type="text" onChange={handleChange} value= {matrix} placeholder=''/>
-        <h2>Matrix: {matrix}</h2>
-        <h2>Determinant: {math.det(updated)}</h2>
-        <button onClick={handleClick}>Determinant</button>
+        <h2>Matriz: {matrix}</h2>
+        <h2>Determinante: {math.det(updated)}</h2>
+        <button onClick={handleClick}>Determinante</button>
         {console.log(updated)}
         {console.log(math.det(updated))}
     </div>

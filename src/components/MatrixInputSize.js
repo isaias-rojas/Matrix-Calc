@@ -39,7 +39,7 @@ export function AddDynamicInput() {
 
   return (
     <>
-    <button onClick={() => handleAdd()}>Add</button>
+    <button onClick={() => handleAdd()}>Añadir vector</button>
       {val.map((data,i) => {
         return (
           <div>
@@ -48,11 +48,11 @@ export function AddDynamicInput() {
           </div>
         )
       })}
-      <button onClick={handleClick}>LI or LD</button>
+      <button onClick={handleClick}>LI o LD</button>
       {
       console.log(val)
       }
-      <h2>Result : {result}</h2>
+      <h2>Resultado : {result}</h2>
     </>
   )
 }

@@ -4,10 +4,11 @@ import { Link, useMatch, useResolvedPath } from "react-router-dom"
 export default function NavBar() {
   return (
     <nav className='nav'>
-      <Link to="/" className='site-title'>Matrix Calculator</Link>
+      <Link to="/" className='site-title'>Programa de Matrices</Link>
       <ul>
-        <CustomLink to="/determinants">Determinants</CustomLink>
-        <CustomLink to="/vectors">Vectors</CustomLink>
+        <CustomLink to="/determinants">Determinantes</CustomLink>
+        <CustomLink to="/vectors">Vectores</CustomLink>
+        <CustomLink to="/ejemplos-determinantes">Ejemplos de determinantes</CustomLink>
       </ul>
     </nav>
   )
